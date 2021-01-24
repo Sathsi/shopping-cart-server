@@ -8,5 +8,5 @@ public interface PriceService {
 
      List<ActualProductPrice> getActualPriceList() throws Exception;
 
-     double getTotalPrice(String purchaseType, String productName, String numberOfItems);
+     double getTotalPrice(String purchaseType, String productName, String numberOfItems) throws Exception;
 }

@@ -17,7 +17,7 @@ public class PriceServiceImplTest {
     PriceServiceImpl priceService;
 
     @Test
-    public void testPriceCalculatorWhenPurchaseTypeIsCartonAndProductNameIsPenguinEars() {
+    public void testPriceCalculatorWhenPurchaseTypeIsCartonAndProductNameIsPenguinEars() throws Exception{
 
         final double totalPriceWithCarton = priceService.getTotalPrice("carton", "Penguin-ears","5");
         assertThat(totalPriceWithCarton).isEqualTo(787.50);
@@ -31,7 +31,7 @@ public class PriceServiceImplTest {
     }
 
     @Test
-    public void testPriceCalculatorWhenPurchaseTypeIsUnitAndProductNameIsPenguinEars() {
+    public void testPriceCalculatorWhenPurchaseTypeIsUnitAndProductNameIsPenguinEars() throws Exception{
 
         final double totalPriceWithUnits = priceService.getTotalPrice("unit","Penguin-ears", "5");
         assertThat(totalPriceWithUnits).isEqualTo(56.88);
@@ -48,7 +48,7 @@ public class PriceServiceImplTest {
     }
 
     @Test
-    public void testPriceCalculatorWhenPurchaseTypeIsCartonAndProductNameIsHorseshoe() {
+    public void testPriceCalculatorWhenPurchaseTypeIsCartonAndProductNameIsHorseshoe() throws Exception{
 
         final double totalPriceWithCarton = priceService.getTotalPrice("carton", "Horseshoe","5");
         assertThat(totalPriceWithCarton).isEqualTo(3712.50);
@@ -62,7 +62,7 @@ public class PriceServiceImplTest {
     }
 
     @Test
-    public void testPriceCalculatorWhenPurchaseTypeIsUnitAndProductNameIsHorseshoe() {
+    public void testPriceCalculatorWhenPurchaseTypeIsUnitAndProductNameIsHorseshoe() throws Exception{
 
         final double totalPriceWithUnits = priceService.getTotalPrice("unit","Horseshoe", "5");
         assertThat(totalPriceWithUnits).isEqualTo(825.00);

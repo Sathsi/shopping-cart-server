@@ -47,15 +47,18 @@ public class PriceServiceImpl implements PriceService {
     }
 
     @Override
-    public double getTotalPrice(final String purchaseType, final String productName, final String numberOfItems) {
+    public double getTotalPrice(final String purchaseType, final String productName, final String numberOfItems) throws Exception{
         LOGGER.info("Request for calculate product prices service invoked");
-        int numberOfItms = Integer.parseInt(numberOfItems);
-
-        if(purchaseType.toLowerCase().equals("carton")) {
-            return Double.parseDouble(decimalFormat.format(getTotalPriceForCarton(productName,numberOfItms)));
-        }else{
-            return Double.parseDouble(decimalFormat.format(getTotalPriceForSingleUnits(productName,numberOfItms)));
+        double cartonPrice = 0.00;
+        if(purchaseType != null && productName != null && numberOfItems != null ){
+            int numberOfItms = Integer.parseInt(numberOfItems);
+            if(purchaseType.toLowerCase().equals("carton")) {
+                cartonPrice = Double.parseDouble(decimalFormat.format(getTotalPriceForCarton(productName,numberOfItms)));
+            }else{
+                cartonPrice = Double.parseDouble(decimalFormat.format(getTotalPriceForSingleUnits(productName,numberOfItms)));
+            }
         }
+        return Double.parseDouble(decimalFormat.format(cartonPrice));
     }
 
     private ActualProductPrice actualProductPriceCalculator(final int numberOfUnits, final double cartonPrice,
