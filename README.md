@@ -1,2 +1,2 @@
 # -shopping-cart
-This repository is created for shopping cart
+This repository contains a shopping cart api
